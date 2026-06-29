@@ -487,11 +487,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
+      "projectUniqueName": "c:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
       "projectName": "DroneNavigationSystem.Api",
-      "projectPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
+      "projectPath": "c:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\obj\\",
+      "outputPath": "c:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config"
