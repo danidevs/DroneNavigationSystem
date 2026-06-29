@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VbyXrqLTUrs=",
+  "dgSpecHash": "tErkEthovdE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\DroneNavigationSystem\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
+  "projectFilePath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.23\\microsoft.aspnetcore.openapi.8.0.23.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

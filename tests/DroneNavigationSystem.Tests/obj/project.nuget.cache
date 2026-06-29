@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g8ULvEr32v4=",
+  "dgSpecHash": "R2OQ1UQ3fOA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\DroneNavigationSystem\\DroneNavigationSystem.Tests\\DroneNavigationSystem.Tests.csproj",
+  "projectFilePath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\tests\\DroneNavigationSystem.Tests\\DroneNavigationSystem.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",

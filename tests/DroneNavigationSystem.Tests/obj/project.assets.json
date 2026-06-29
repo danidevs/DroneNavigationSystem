@@ -5513,11 +5513,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\DroneNavigationSystem\\DroneNavigationSystem.Tests\\DroneNavigationSystem.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\tests\\DroneNavigationSystem.Tests\\DroneNavigationSystem.Tests.csproj",
       "projectName": "DroneNavigationSystem.Tests",
-      "projectPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\DroneNavigationSystem\\DroneNavigationSystem.Tests\\DroneNavigationSystem.Tests.csproj",
+      "projectPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\tests\\DroneNavigationSystem.Tests\\DroneNavigationSystem.Tests.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\DroneNavigationSystem\\DroneNavigationSystem.Tests\\obj\\",
+      "outputPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\tests\\DroneNavigationSystem.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config"

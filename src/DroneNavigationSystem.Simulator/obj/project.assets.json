@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\DroneNavigationSystem\\DroneNavigationSystem.Simulator\\DroneNavigationSystem.Simulator.csproj",
+      "projectUniqueName": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Simulator\\DroneNavigationSystem.Simulator.csproj",
       "projectName": "DroneNavigationSystem.Simulator",
-      "projectPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\DroneNavigationSystem\\DroneNavigationSystem.Simulator\\DroneNavigationSystem.Simulator.csproj",
+      "projectPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Simulator\\DroneNavigationSystem.Simulator.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\DroneNavigationSystem\\DroneNavigationSystem.Simulator\\obj\\",
+      "outputPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Simulator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config"
