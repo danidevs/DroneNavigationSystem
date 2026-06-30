@@ -1,0 +1,12 @@
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\bin\Debug\net8.0\DroneNavigationSystem.Domain.deps.json
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\bin\Debug\net8.0\DroneNavigationSystem.Domain.dll
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\bin\Debug\net8.0\DroneNavigationSystem.Domain.pdb
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\obj\Debug\net8.0\DroneNavigationSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\obj\Debug\net8.0\DroneNavigationSystem.Domain.AssemblyInfoInputs.cache
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\obj\Debug\net8.0\DroneNavigationSystem.Domain.AssemblyInfo.cs
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\obj\Debug\net8.0\DroneNavigationSystem.Domain.csproj.CoreCompileInputs.cache
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\obj\Debug\net8.0\DroneNavigationSystem.Domain.sourcelink.json
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\obj\Debug\net8.0\DroneNavigationSystem.Domain.dll
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\obj\Debug\net8.0\refint\DroneNavigationSystem.Domain.dll
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\obj\Debug\net8.0\DroneNavigationSystem.Domain.pdb
+C:\Users\danie\OneDrive\Documentos\Desktop\Daniel\CSharp\ProjetoFenix\DroneNavigationSystem\src\DroneNavigationSystem.Domain\obj\Debug\net8.0\ref\DroneNavigationSystem.Domain.dll

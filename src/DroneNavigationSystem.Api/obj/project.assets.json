@@ -107,6 +107,29 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "DroneNavigationSystem.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DroneNavigationSystem.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DroneNavigationSystem.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DroneNavigationSystem.Application.dll": {}
+        }
+      },
+      "DroneNavigationSystem.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DroneNavigationSystem.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DroneNavigationSystem.Domain.dll": {}
+        }
       }
     }
   },
@@ -473,10 +496,21 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "DroneNavigationSystem.Application/1.0.0": {
+      "type": "project",
+      "path": "../DroneNavigationSystem.Application/DroneNavigationSystem.Application.csproj",
+      "msbuildProject": "../DroneNavigationSystem.Application/DroneNavigationSystem.Application.csproj"
+    },
+    "DroneNavigationSystem.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DroneNavigationSystem.Domain/DroneNavigationSystem.Domain.csproj",
+      "msbuildProject": "../DroneNavigationSystem.Domain/DroneNavigationSystem.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "DroneNavigationSystem.Application >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.23",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -487,11 +521,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
+      "projectUniqueName": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
       "projectName": "DroneNavigationSystem.Api",
-      "projectPath": "c:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
+      "projectPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\DroneNavigationSystem.Api.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\obj\\",
+      "outputPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -505,7 +539,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Application\\DroneNavigationSystem.Application.csproj": {
+              "projectPath": "C:\\Users\\danie\\OneDrive\\Documentos\\Desktop\\Daniel\\CSharp\\ProjetoFenix\\DroneNavigationSystem\\src\\DroneNavigationSystem.Application\\DroneNavigationSystem.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DroneNavigationSystem.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9494468c55fe69e682872e104039f527452137e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5de00d040be3adc5292d4999ce3e60c2fc67b255")]
 [assembly: System.Reflection.AssemblyProductAttribute("DroneNavigationSystem.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DroneNavigationSystem.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
