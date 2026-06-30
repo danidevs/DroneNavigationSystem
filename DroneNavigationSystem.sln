@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A4480578-7539-4BEC-A80E-C21AD8AFC7F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneNavigationSystem.Domain", "src\DroneNavigationSystem.Domain\DroneNavigationSystem.Domain.csproj", "{5350DB5C-EF90-46AA-A668-9E54C5C5449C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneNavigationSystem.Application", "src\DroneNavigationSystem.Application\DroneNavigationSystem.Application.csproj", "{CDBCFB9D-C8FB-4908-8DA7-D96E2643BA16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneNavigationSystem.Infrastructure", "src\DroneNavigationSystem.Infrastructure\DroneNavigationSystem.Infrastructure.csproj", "{90913279-5E7B-404F-A47C-559C7C27A31C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneNavigationSystem.Api", "src\DroneNavigationSystem.Api\DroneNavigationSystem.Api.csproj", "{8C923424-546F-4384-B8CD-914C9CBF331B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneNavigationSystem.Simulator", "src\DroneNavigationSystem.Simulator\DroneNavigationSystem.Simulator.csproj", "{DF22F125-4C63-416E-8167-E37F05FE8345}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5350DB5C-EF90-46AA-A668-9E54C5C5449C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5350DB5C-EF90-46AA-A668-9E54C5C5449C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5350DB5C-EF90-46AA-A668-9E54C5C5449C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5350DB5C-EF90-46AA-A668-9E54C5C5449C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDBCFB9D-C8FB-4908-8DA7-D96E2643BA16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDBCFB9D-C8FB-4908-8DA7-D96E2643BA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDBCFB9D-C8FB-4908-8DA7-D96E2643BA16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDBCFB9D-C8FB-4908-8DA7-D96E2643BA16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90913279-5E7B-404F-A47C-559C7C27A31C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90913279-5E7B-404F-A47C-559C7C27A31C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90913279-5E7B-404F-A47C-559C7C27A31C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90913279-5E7B-404F-A47C-559C7C27A31C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C923424-546F-4384-B8CD-914C9CBF331B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C923424-546F-4384-B8CD-914C9CBF331B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C923424-546F-4384-B8CD-914C9CBF331B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C923424-546F-4384-B8CD-914C9CBF331B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF22F125-4C63-416E-8167-E37F05FE8345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF22F125-4C63-416E-8167-E37F05FE8345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF22F125-4C63-416E-8167-E37F05FE8345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF22F125-4C63-416E-8167-E37F05FE8345}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5350DB5C-EF90-46AA-A668-9E54C5C5449C} = {A4480578-7539-4BEC-A80E-C21AD8AFC7F9}
+		{CDBCFB9D-C8FB-4908-8DA7-D96E2643BA16} = {A4480578-7539-4BEC-A80E-C21AD8AFC7F9}
+		{90913279-5E7B-404F-A47C-559C7C27A31C} = {A4480578-7539-4BEC-A80E-C21AD8AFC7F9}
+		{8C923424-546F-4384-B8CD-914C9CBF331B} = {A4480578-7539-4BEC-A80E-C21AD8AFC7F9}
+		{DF22F125-4C63-416E-8167-E37F05FE8345} = {A4480578-7539-4BEC-A80E-C21AD8AFC7F9}
+	EndGlobalSection
+EndGlobal
