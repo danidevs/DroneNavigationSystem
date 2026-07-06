@@ -20,6 +20,8 @@ namespace DroneNavigationSystem.Domain.Entities
         public double Longitude { get; private set; }
 
         public double Altitude { get; private set; }
+       
+        public bool IsFlying { get; private set; }
 
         public Drone(
         string model,
@@ -38,6 +40,27 @@ namespace DroneNavigationSystem.Domain.Entities
             Longitude = 0;
 
             Altitude = 0;
-        }  
+            
+            IsFlying = false;
+        } 
+        public void TakeOff()
+        {
+            if (IsFlying)
+            {
+                Console.WriteLine("The drone is already flying.");
+                return;
+            }
+
+            if (BatteryLevel < 20)
+            {
+                Console.WriteLine("Battery level is too low for takeoff.");
+                return;
+            }
+
+            Altitude = 10;
+            IsFlying = true;
+
+            Console.WriteLine("Drone taking off...");
+        } 
     }
 }
