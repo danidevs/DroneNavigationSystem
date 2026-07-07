@@ -62,5 +62,56 @@ namespace DroneNavigationSystem.Domain.Entities
 
             Console.WriteLine("Drone taking off...");
         } 
+       public void MoveNorth()
+        {
+            if (!IsFlying)
+            {
+                Console.WriteLine("The drone must take off first.");
+                return;
+            }
+
+                Latitude += 1;
+        }
+
+        public void MoveSouth()
+        {
+            Latitude -= 1;
+        }
+
+        public void MoveEast()
+        {
+            Longitude += 1;
+        }
+
+        public void MoveWest()
+        {
+            Longitude -= 1;
+    }
+
+        public void Ascend()
+        {
+            Altitude += 10;
+        }
+
+        public void Descend()
+        {
+            if (Altitude >= 10)
+            {
+                Altitude -= 10;
+            }
+        }
+       public void Land()
+        {
+            if (!IsFlying)
+            {
+                Console.WriteLine("The drone is already on the ground.");
+                return;
+            }
+
+            Altitude = 0;
+            IsFlying = false;
+
+            Console.WriteLine("Drone landing...");
+        }
     }
 }

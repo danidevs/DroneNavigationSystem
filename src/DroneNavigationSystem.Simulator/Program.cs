@@ -16,18 +16,38 @@ namespace DroneNavigationSystem.Simulator
             Console.WriteLine("=================================");
 
             var drone = new Drone(
-            "Fênix X1",
-            "OpenAI Aerospace");
+                "Fênix X1",
+                "OpenAI Aerospace");
 
             drone.TakeOff();
 
+            drone.MoveNorth();
+            drone.MoveNorth();
+
+            drone.MoveEast();
+
+            drone.Ascend();
+
+            drone.MoveEast();
+
+            drone.Descend();
+
+            drone.Land();
+
             Console.WriteLine();
 
-            Console.WriteLine($"Model: {drone.Model}");
-            Console.WriteLine($"Manufacturer: {drone.Manufacturer}");
-            Console.WriteLine($"Battery: {drone.BatteryLevel}%");
-            Console.WriteLine($"Altitude: {drone.Altitude} m");
-            Console.WriteLine($"Flying: {drone.IsFlying}");
+            Console.WriteLine();
+            Console.WriteLine("===== Final Drone Status =====");
+
+            Console.WriteLine($"Latitude : {drone.Latitude}");
+
+            Console.WriteLine($"Longitude: {drone.Longitude}");
+
+            Console.WriteLine($"Altitude : {drone.Altitude}");
+
+            Console.WriteLine($"Battery  : {drone.BatteryLevel}%");
+
+            Console.WriteLine($"Flying   : {drone.IsFlying}");
         }
     }
 }
