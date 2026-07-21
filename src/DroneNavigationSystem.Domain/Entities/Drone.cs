@@ -23,9 +23,7 @@ namespace DroneNavigationSystem.Domain.Entities
        
         public bool IsFlying { get; private set; }
 
-        public Drone(
-        string model,
-        string manufacturer)
+        public Drone(string model, string manufacturer)
         {
             Id = Guid.NewGuid();
 
@@ -59,6 +57,7 @@ namespace DroneNavigationSystem.Domain.Entities
 
             Altitude = 10;
             IsFlying = true;
+            ConsumeBattery(2);
 
             Console.WriteLine("Drone taking off...");
         } 
@@ -71,26 +70,31 @@ namespace DroneNavigationSystem.Domain.Entities
             }
 
                 Latitude += 1;
+                ConsumeBattery(1);
         }
 
         public void MoveSouth()
         {
             Latitude -= 1;
+            ConsumeBattery(1);
         }
 
         public void MoveEast()
         {
             Longitude += 1;
+            ConsumeBattery(1);
         }
 
         public void MoveWest()
         {
             Longitude -= 1;
-    }
+            ConsumeBattery(1);
+        }
 
         public void Ascend()
         {
             Altitude += 10;
+            ConsumeBattery(2);
         }
 
         public void Descend()
@@ -98,6 +102,7 @@ namespace DroneNavigationSystem.Domain.Entities
             if (Altitude >= 10)
             {
                 Altitude -= 10;
+                ConsumeBattery(1);
             }
         }
        public void Land()
@@ -110,8 +115,18 @@ namespace DroneNavigationSystem.Domain.Entities
 
             Altitude = 0;
             IsFlying = false;
+            ConsumeBattery(1);
 
             Console.WriteLine("Drone landing...");
+        }
+        private void ConsumeBattery(double amount)
+        {
+            BatteryLevel -= amount;
+
+            if (BatteryLevel < 0)
+            {
+                BatteryLevel = 0;
+            }
         }
     }
 }
