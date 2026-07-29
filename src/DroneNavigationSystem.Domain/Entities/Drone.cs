@@ -68,6 +68,11 @@ namespace DroneNavigationSystem.Domain.Entities
                 Console.WriteLine("The drone must take off first.");
                 return;
             }
+            if (!HasEnoughBattery(1))
+            {
+                Console.WriteLine("Battery too low.");
+                return;
+            }
 
                 Latitude += 1;
                 ConsumeBattery(1);
@@ -75,30 +80,58 @@ namespace DroneNavigationSystem.Domain.Entities
 
         public void MoveSouth()
         {
+            if (!HasEnoughBattery(1))
+            {
+                Console.WriteLine("Battery too low.");
+                return;
+            }
+
             Latitude -= 1;
             ConsumeBattery(1);
         }
 
         public void MoveEast()
         {
+            if (!HasEnoughBattery(1))
+            {
+                Console.WriteLine("Battery too low.");
+                return;
+            }
+
             Longitude += 1;
             ConsumeBattery(1);
         }
 
         public void MoveWest()
         {
+            if (!HasEnoughBattery(1))
+            {
+                Console.WriteLine("Battery too low.");
+                return;
+            }
+
             Longitude -= 1;
             ConsumeBattery(1);
         }
 
         public void Ascend()
         {
+            if (!HasEnoughBattery(1))
+            {
+                Console.WriteLine("Battery too low.");
+                return;
+            }
             Altitude += 10;
             ConsumeBattery(2);
         }
 
         public void Descend()
         {
+            if (!HasEnoughBattery(1))
+            {
+                Console.WriteLine("Battery too low.");
+                return;
+            }
             if (Altitude >= 10)
             {
                 Altitude -= 10;
@@ -128,5 +161,39 @@ namespace DroneNavigationSystem.Domain.Entities
                 BatteryLevel = 0;
             }
         }
+        private bool HasEnoughBattery(double required)
+        {
+            return BatteryLevel >= required;
+        }
+        public void ExecuteMission(Mission mission)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"Starting mission: {mission.Name}");
+            Console.WriteLine();
+
+            TakeOff();
+
+            foreach (var waypoint in mission.Waypoints)
+            {
+                Latitude = waypoint.Latitude;
+                Longitude = waypoint.Longitude;
+                Altitude = waypoint.Altitude;
+
+                ConsumeBattery(3);
+
+                Console.WriteLine(
+                    $"Reached Waypoint -> " +
+                    $"Lat:{Latitude} " +
+                    $"Lon:{Longitude} " +
+                    $"Alt:{Altitude} " +
+                    $"Battery:{BatteryLevel}%");
+            }
+
+            Land();
+
+                Console.WriteLine();
+                Console.WriteLine("Mission completed successfully.");
+        }
+       
     }
 }
