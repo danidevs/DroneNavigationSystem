@@ -171,29 +171,77 @@ namespace DroneNavigationSystem.Domain.Entities
             Console.WriteLine($"Starting mission: {mission.Name}");
             Console.WriteLine();
 
-            TakeOff();
+            if (!IsFlying)
+            {
+                TakeOff();
+            }
 
             foreach (var waypoint in mission.Waypoints)
             {
-                Latitude = waypoint.Latitude;
-                Longitude = waypoint.Longitude;
-                Altitude = waypoint.Altitude;
-
-                ConsumeBattery(3);
-
-                Console.WriteLine(
-                    $"Reached Waypoint -> " +
-                    $"Lat:{Latitude} " +
-                    $"Lon:{Longitude} " +
-                    $"Alt:{Altitude} " +
-                    $"Battery:{BatteryLevel}%");
+                MoveToWaypoint(waypoint);
             }
 
             Land();
 
-                Console.WriteLine();
-                Console.WriteLine("Mission completed successfully.");
+            Console.WriteLine();
+            Console.WriteLine("Mission completed successfully.");
         }
+        private void MoveToWaypoint(Waypoint waypoint)
+        {
+            while (Latitude != waypoint.Latitude)
+            {
+                if (Latitude < waypoint.Latitude)
+        {
+            Latitude += 1;
+        }
+        else
+        {
+            Latitude -= 1;
+        }
+
+        ConsumeBattery(1);
+
+        Console.WriteLine(
+            $"Moving -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude} Battery:{BatteryLevel}%");
+        }
+
+        while (Longitude != waypoint.Longitude)
+        {
+            if (Longitude < waypoint.Longitude)
+            {
+                Longitude += 1;
+            }
+            else
+            {
+                Longitude -= 1;
+        }
+
+        ConsumeBattery(1);
+
+            Console.WriteLine(
+            $"Moving -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude} Battery:{BatteryLevel}%");
+        }
+
+        while (Altitude != waypoint.Altitude)
+        {
+            if (Altitude < waypoint.Altitude)
+            {
+                Altitude += 10;
+            }
+            else
+            {
+            Altitude -= 10;
+        }
+
+        ConsumeBattery(1);
+
+        Console.WriteLine(
+            $"Moving -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude} Battery:{BatteryLevel}%");
+    }
+
+    Console.WriteLine(
+        $"Waypoint reached -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude}");
+}
        
     }
 }
