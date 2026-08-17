@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DroneNavigationSystem.Domain.Services;
 
 namespace DroneNavigationSystem.Domain.Entities
 {
@@ -188,6 +189,20 @@ namespace DroneNavigationSystem.Domain.Entities
         }
         private void MoveToWaypoint(Waypoint waypoint)
         {
+
+            var calculator = new NavigationCalculator();
+
+            double distance = calculator.CalculateDistance(
+                Latitude,
+                Longitude,
+                Altitude,
+                waypoint.Latitude,
+                waypoint.Longitude,
+                waypoint.Altitude);
+
+            Console.WriteLine();
+            Console.WriteLine($"Distance to waypoint: {distance:F2}");
+            Console.WriteLine();
             while (Latitude != waypoint.Latitude)
             {
                 if (Latitude < waypoint.Latitude)
