@@ -200,9 +200,15 @@ namespace DroneNavigationSystem.Domain.Entities
                 waypoint.Longitude,
                 waypoint.Altitude);
 
-            Console.WriteLine();
-            Console.WriteLine($"Distance to waypoint: {distance:F2}");
-            Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine($"Distance to waypoint: {distance:F2}");
+                Console.WriteLine();
+            var energyCalculator = new EnergyCalculator();
+
+            double estimatedConsumption =
+            energyCalculator.CalculateConsumption(distance);
+
+            Console.WriteLine($"Estimated energy consumption: {estimatedConsumption:F2}%");
             while (Latitude != waypoint.Latitude)
             {
                 if (Latitude < waypoint.Latitude)
