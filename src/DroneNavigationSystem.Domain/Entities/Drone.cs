@@ -203,6 +203,11 @@ namespace DroneNavigationSystem.Domain.Entities
             }
 
                 Console.WriteLine($"Total mission distance: {totalDistance:F2}");
+                var energyCalculator = new EnergyCalculator();
+
+                double estimatedMissionConsumption = energyCalculator.CalculateMissionConsumption(totalDistance);
+
+                Console.WriteLine($"Estimated mission energy consumption: {estimatedMissionConsumption:F2}%");
 
              
 
