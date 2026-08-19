@@ -171,11 +171,40 @@ namespace DroneNavigationSystem.Domain.Entities
             Console.WriteLine();
             Console.WriteLine($"Starting mission: {mission.Name}");
             Console.WriteLine();
-
+            
             if (!IsFlying)
             {
                 TakeOff();
             }
+
+            var calculator = new NavigationCalculator();
+
+            double totalDistance = 0;
+
+            double currentLatitude = Latitude;
+            double currentLongitude = Longitude;
+            double currentAltitude = Altitude;
+
+            foreach (var waypoint in mission.Waypoints)
+            {
+                double distance = calculator.CalculateDistance(
+                currentLatitude,
+                currentLongitude,
+                currentAltitude,
+                waypoint.Latitude,
+                waypoint.Longitude,
+                waypoint.Altitude);
+
+                totalDistance += distance;
+
+                currentLatitude = waypoint.Latitude;
+                currentLongitude = waypoint.Longitude;
+                currentAltitude = waypoint.Altitude;
+            }
+
+                Console.WriteLine($"Total mission distance: {totalDistance:F2}");
+
+             
 
             foreach (var waypoint in mission.Waypoints)
             {
@@ -187,6 +216,7 @@ namespace DroneNavigationSystem.Domain.Entities
             Console.WriteLine();
             Console.WriteLine("Mission completed successfully.");
         }
+        
         private void MoveToWaypoint(Waypoint waypoint)
         {
 

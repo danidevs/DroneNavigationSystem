@@ -11,5 +11,9 @@ namespace DroneNavigationSystem.Domain.Services
         {
             return distance * 0.5;
         }
+        public double CalculateMissionConsumption(double totalDistance)
+        {
+            return CalculateConsumption(totalDistance);
+        }
     }
 }
