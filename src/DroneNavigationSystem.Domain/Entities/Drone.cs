@@ -208,6 +208,10 @@ namespace DroneNavigationSystem.Domain.Entities
                 double estimatedMissionConsumption = energyCalculator.CalculateMissionConsumption(totalDistance);
 
                 Console.WriteLine($"Estimated mission energy consumption: {estimatedMissionConsumption:F2}%");
+                
+                double remainingBattery = BatteryLevel - estimatedMissionConsumption;
+
+                Console.WriteLine( $"Estimated battery after mission: {remainingBattery:F2}%");
 
              
 
