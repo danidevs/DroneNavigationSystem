@@ -166,66 +166,79 @@ namespace DroneNavigationSystem.Domain.Entities
         {
             return BatteryLevel >= required;
         }
-        public void ExecuteMission(Mission mission)
-        {
-            Console.WriteLine();
-            Console.WriteLine($"Starting mission: {mission.Name}");
-            Console.WriteLine();
-            
-            if (!IsFlying)
-            {
-                TakeOff();
-            }
+       public void ExecuteMission(Mission mission)
+{
+    Console.WriteLine();
+    Console.WriteLine($"Starting mission: {mission.Name}");
+    Console.WriteLine();
 
-            var calculator = new NavigationCalculator();
+    var calculator = new NavigationCalculator();
 
-            double totalDistance = 0;
+    double totalDistance = 0;
 
-            double currentLatitude = Latitude;
-            double currentLongitude = Longitude;
-            double currentAltitude = Altitude;
+    double currentLatitude = Latitude;
+    double currentLongitude = Longitude;
+    double currentAltitude = Altitude;
 
-            foreach (var waypoint in mission.Waypoints)
-            {
-                double distance = calculator.CalculateDistance(
-                currentLatitude,
-                currentLongitude,
-                currentAltitude,
-                waypoint.Latitude,
-                waypoint.Longitude,
-                waypoint.Altitude);
+    foreach (var waypoint in mission.Waypoints)
+    {
+        double distance = calculator.CalculateDistance(
+            currentLatitude,
+            currentLongitude,
+            currentAltitude,
+            waypoint.Latitude,
+            waypoint.Longitude,
+            waypoint.Altitude);
 
-                totalDistance += distance;
+        totalDistance += distance;
 
-                currentLatitude = waypoint.Latitude;
-                currentLongitude = waypoint.Longitude;
-                currentAltitude = waypoint.Altitude;
-            }
+        currentLatitude = waypoint.Latitude;
+        currentLongitude = waypoint.Longitude;
+        currentAltitude = waypoint.Altitude;
+    }
 
-                Console.WriteLine($"Total mission distance: {totalDistance:F2}");
-                var energyCalculator = new EnergyCalculator();
+    Console.WriteLine(
+        $"Total mission distance: {totalDistance:F2}");
 
-                double estimatedMissionConsumption = energyCalculator.CalculateMissionConsumption(totalDistance);
+    var energyCalculator = new EnergyCalculator();
 
-                Console.WriteLine($"Estimated mission energy consumption: {estimatedMissionConsumption:F2}%");
-                
-                double remainingBattery = BatteryLevel - estimatedMissionConsumption;
+    double estimatedMissionConsumption =
+        energyCalculator.CalculateMissionConsumption(totalDistance);
 
-                Console.WriteLine( $"Estimated battery after mission: {remainingBattery:F2}%");
+    Console.WriteLine(
+        $"Estimated mission energy consumption: {estimatedMissionConsumption:F2}%");
 
-             
+    const double minimumSafetyBattery = 20;
 
-            foreach (var waypoint in mission.Waypoints)
-            {
-                MoveToWaypoint(waypoint);
-            }
+    double estimatedBatteryAfterMission =
+        BatteryLevel - estimatedMissionConsumption;
 
-            Land();
+    Console.WriteLine(
+        $"Estimated battery after mission: {estimatedBatteryAfterMission:F2}%");
 
-            Console.WriteLine();
-            Console.WriteLine("Mission completed successfully.");
-        }
-        
+    if (estimatedBatteryAfterMission < minimumSafetyBattery)
+    {
+        Console.WriteLine(
+            "Mission aborted: insufficient battery reserve.");
+
+        return;
+    }
+
+    if (!IsFlying)
+    {
+        TakeOff();
+    }
+
+    foreach (var waypoint in mission.Waypoints)
+    {
+        MoveToWaypoint(waypoint);
+    }
+
+    Land();
+
+    Console.WriteLine();
+    Console.WriteLine("Mission completed successfully.");
+}
         private void MoveToWaypoint(Waypoint waypoint)
         {
 
