@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DroneNavigationSystem.Domain.Entities;
+using DroneNavigationSystem.Application.Services;
+
 
 namespace DroneNavigationSystem.Simulator
 {
@@ -15,11 +17,16 @@ namespace DroneNavigationSystem.Simulator
             Console.WriteLine(" Projeto Fênix");
             Console.WriteLine("=================================");
 
+            
+
             var drone = new Drone(
             "Fênix X1",
             "OpenAI Aerospace");
-
+    
+            var groundControl = new GroundControlService(drone);
+            groundControl.ShowTelemetry();
             var mission = new Mission("First Autonomous Mission");
+           
 
             mission.AddWaypoint(
             new Waypoint(2, 2, 20));
@@ -32,13 +39,7 @@ namespace DroneNavigationSystem.Simulator
 
             drone.ExecuteMission(mission);
 
-            Console.WriteLine();
-            Console.WriteLine("===== Final Drone Status =====");
-            Console.WriteLine($"Latitude : {drone.Latitude}");
-            Console.WriteLine($"Longitude: {drone.Longitude}");
-            Console.WriteLine($"Altitude : {drone.Altitude}");
-            Console.WriteLine($"Battery  : {drone.BatteryLevel}%");
-            Console.WriteLine($"Flying   : {drone.IsFlying}");
+            groundControl.ShowTelemetry();
         }
     }
 }
