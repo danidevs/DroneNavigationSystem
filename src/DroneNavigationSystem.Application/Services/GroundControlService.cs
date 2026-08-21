@@ -67,5 +67,12 @@ namespace DroneNavigationSystem.Application.Services
             Console.WriteLine($"Flying       : {_drone.IsFlying}");
             Console.WriteLine("====================================");
         }
+        public void ExecuteMission(Mission mission)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Ground Control: sending mission to drone...");
+
+            _drone.ExecuteMission(mission);
+        }
     }
 }

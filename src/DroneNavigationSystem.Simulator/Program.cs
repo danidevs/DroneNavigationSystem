@@ -37,7 +37,7 @@ namespace DroneNavigationSystem.Simulator
             mission.AddWaypoint(
             new Waypoint(5, 5, 10));
 
-            drone.ExecuteMission(mission);
+            groundControl.ExecuteMission(mission);
 
             groundControl.ShowTelemetry();
         }
