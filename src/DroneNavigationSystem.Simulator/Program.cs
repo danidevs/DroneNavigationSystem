@@ -24,6 +24,7 @@ namespace DroneNavigationSystem.Simulator
             "OpenAI Aerospace");
     
             var groundControl = new GroundControlService(drone);
+            groundControl.RunManualControl();
             groundControl.ShowTelemetry();
             var mission = new Mission("First Autonomous Mission");
            
@@ -40,6 +41,9 @@ namespace DroneNavigationSystem.Simulator
             groundControl.ExecuteMission(mission);
 
             groundControl.ShowTelemetry();
+            
+           
+            
         }
     }
 }

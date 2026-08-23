@@ -81,6 +81,11 @@ namespace DroneNavigationSystem.Domain.Entities
 
         public void MoveSouth()
         {
+            if (!IsFlying)
+            {
+                Console.WriteLine("The drone must take off first.");
+                return;
+            }
             if (!HasEnoughBattery(1))
             {
                 Console.WriteLine("Battery too low.");
@@ -93,6 +98,11 @@ namespace DroneNavigationSystem.Domain.Entities
 
         public void MoveEast()
         {
+            if (!IsFlying)
+            {
+                Console.WriteLine("The drone must take off first.");
+                return;
+            }
             if (!HasEnoughBattery(1))
             {
                 Console.WriteLine("Battery too low.");
@@ -102,9 +112,14 @@ namespace DroneNavigationSystem.Domain.Entities
             Longitude += 1;
             ConsumeBattery(1);
         }
-
+        
         public void MoveWest()
         {
+            if (!IsFlying)
+            {
+                Console.WriteLine("The drone must take off first.");
+                return;
+            }
             if (!HasEnoughBattery(1))
             {
                 Console.WriteLine("Battery too low.");
@@ -117,7 +132,12 @@ namespace DroneNavigationSystem.Domain.Entities
 
         public void Ascend()
         {
-            if (!HasEnoughBattery(1))
+            if (!IsFlying)
+            {
+                Console.WriteLine("The drone must take off first.");
+                return;
+            }
+            if (!HasEnoughBattery(2))
             {
                 Console.WriteLine("Battery too low.");
                 return;
@@ -128,6 +148,11 @@ namespace DroneNavigationSystem.Domain.Entities
 
         public void Descend()
         {
+            if (!IsFlying)
+            {
+                Console.WriteLine("The drone must take off first.");
+                return;
+            }
             if (!HasEnoughBattery(1))
             {
                 Console.WriteLine("Battery too low.");
