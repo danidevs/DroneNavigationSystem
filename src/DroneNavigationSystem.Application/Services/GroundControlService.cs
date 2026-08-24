@@ -106,49 +106,95 @@ namespace DroneNavigationSystem.Application.Services
 
                 switch (option)
                 {
-                case "1":
-                TakeOff();
-                break;
+                    case "1":
+                    TakeOff();
+                    break;
 
-                case "2":
-                Land();
-                break;
+                    case "2":
+                    Land();
+                    break;
 
-                case "3":
-                MoveNorth();
-                break;
+                    case "3":
+                    MoveNorth();
+                    break;
 
-                case "4":
-                MoveSouth();
-                break;
+                    case "4":
+                    MoveSouth();
+                    break;
 
-                case "5":
-                MoveEast();
-                break;
+                    case "5":
+                    MoveEast();
+                    break;
 
-                case "6":
-                MoveWest();
-                break;
+                    case "6":
+                    MoveWest();
+                    break;
 
-                case "7":
-                Ascend();
-                break;
+                    case "7":
+                    Ascend();
+                    break;
 
-                case "8":
-                Descend();
-                break;
+                    case "8":
+                    Descend();
+                    break;
 
-                case "9":
-                ShowTelemetry();
-                break;
+                    case "9":
+                    ShowTelemetry();
+                    break;
 
-                case "0":
-                Console.WriteLine("Leaving manual control mode...");
-                break;
+                    case "0":
+                    Console.WriteLine("Leaving manual control mode...");
+                    break;
 
-                default:
-                Console.WriteLine("Invalid option.");
-                break;
+                    default:
+                    Console.WriteLine("Invalid option.");
+                    break;
+                }
+
+            } while (option != "0");
+            
+        }
+        public void RunMainMenu(Mission mission)
+        {
+            string? option;
+
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("=====================================");
+                Console.WriteLine("       PROJETO FÊNIX");
+                Console.WriteLine("     GROUND CONTROL STATION");
+                Console.WriteLine("=====================================");
+                Console.WriteLine("1 - Manual Control");
+                Console.WriteLine("2 - Autonomous Mission");
+                Console.WriteLine("3 - Telemetry");
+                Console.WriteLine("0 - Exit");
+                Console.WriteLine("=====================================");
+                Console.Write("Option: ");
+
+                option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                    RunManualControl();
+                    break;
+
+                    case "2":
+                    ExecuteMission(mission);
+                    break;
+
+                    case "3":
+                    ShowTelemetry();
+                    break;
+
+                    case "0":
+                    Console.WriteLine("Shutting down Ground Control Station...");
+                    break;
+
+                    default:
+                    Console.WriteLine("Invalid option.");
+                    break;
                 }
 
             } while (option != "0");

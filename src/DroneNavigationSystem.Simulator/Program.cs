@@ -24,9 +24,11 @@ namespace DroneNavigationSystem.Simulator
             "OpenAI Aerospace");
     
             var groundControl = new GroundControlService(drone);
-            groundControl.RunManualControl();
-            groundControl.ShowTelemetry();
+            
+           
+            
             var mission = new Mission("First Autonomous Mission");
+            
            
 
             mission.AddWaypoint(
@@ -37,10 +39,11 @@ namespace DroneNavigationSystem.Simulator
 
             mission.AddWaypoint(
             new Waypoint(5, 5, 10));
+            
+            groundControl.RunMainMenu(mission);
+            
 
-            groundControl.ExecuteMission(mission);
-
-            groundControl.ShowTelemetry();
+            
             
            
             
