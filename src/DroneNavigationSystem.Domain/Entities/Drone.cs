@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DroneNavigationSystem.Domain.Services;
+using DroneNavigationSystem.Domain.Telemetry;
 
 namespace DroneNavigationSystem.Domain.Entities
 {
@@ -340,6 +341,15 @@ namespace DroneNavigationSystem.Domain.Entities
     Console.WriteLine(
         $"Waypoint reached -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude}");
 }
+        public DroneTelemetry GetTelemetry()
+        {
+            return new DroneTelemetry(
+                Latitude,
+                Longitude,
+                Altitude,
+                BatteryLevel,
+                IsFlying);
+        }
        
     }
 }

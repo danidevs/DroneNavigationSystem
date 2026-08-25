@@ -64,15 +64,17 @@ namespace DroneNavigationSystem.Application.Services
         }
         public void ShowTelemetry()
         {
+            var telemetry = _drone.GetTelemetry();
+
             Console.WriteLine();
             Console.WriteLine("===== GROUND CONTROL TELEMETRY =====");
             Console.WriteLine($"Drone        : {_drone.Model}");
             Console.WriteLine($"Manufacturer : {_drone.Manufacturer}");
-            Console.WriteLine($"Latitude     : {_drone.Latitude}");
-            Console.WriteLine($"Longitude    : {_drone.Longitude}");
-            Console.WriteLine($"Altitude     : {_drone.Altitude}");
-            Console.WriteLine($"Battery      : {_drone.BatteryLevel}%");
-            Console.WriteLine($"Flying       : {_drone.IsFlying}");
+            Console.WriteLine($"Latitude     : {telemetry.Latitude}");
+            Console.WriteLine($"Longitude    : {telemetry.Longitude}");
+            Console.WriteLine($"Altitude     : {telemetry.Altitude}");
+            Console.WriteLine($"Battery      : {telemetry.BatteryLevel}%");
+            Console.WriteLine($"Flying       : {telemetry.IsFlying}");
             Console.WriteLine("====================================");
         }
         public void ExecuteMission(Mission mission)
