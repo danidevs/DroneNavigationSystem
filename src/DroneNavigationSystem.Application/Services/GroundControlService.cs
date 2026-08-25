@@ -68,8 +68,8 @@ namespace DroneNavigationSystem.Application.Services
 
             Console.WriteLine();
             Console.WriteLine("===== GROUND CONTROL TELEMETRY =====");
-            Console.WriteLine($"Drone        : {_drone.Model}");
-            Console.WriteLine($"Manufacturer : {_drone.Manufacturer}");
+            Console.WriteLine($"Drone        : {telemetry.Model}");
+            Console.WriteLine($"Manufacturer : {telemetry.Manufacturer}");
             Console.WriteLine($"Latitude     : {telemetry.Latitude}");
             Console.WriteLine($"Longitude    : {telemetry.Longitude}");
             Console.WriteLine($"Altitude     : {telemetry.Altitude}");

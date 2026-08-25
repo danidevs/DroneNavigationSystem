@@ -344,6 +344,8 @@ namespace DroneNavigationSystem.Domain.Entities
         public DroneTelemetry GetTelemetry()
         {
             return new DroneTelemetry(
+                Model,
+                Manufacturer,
                 Latitude,
                 Longitude,
                 Altitude,
