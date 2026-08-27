@@ -24,6 +24,15 @@ app.MapGet("/api/drone/telemetry", () =>
     return drone.GetTelemetry();
 })
 .WithName("GetDroneTelemetry")
+
+.WithOpenApi();
+app.MapPost("/api/drone/takeoff", () =>
+{
+    drone.TakeOff();
+
+    return Results.Ok(drone.GetTelemetry());
+})
+.WithName("TakeOffDrone")
 .WithOpenApi();
 
 app.Run();
