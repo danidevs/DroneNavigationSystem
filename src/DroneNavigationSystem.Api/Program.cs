@@ -44,4 +44,13 @@ app.MapPost("/api/drone/land", () =>
 .WithName("LandDrone")
 .WithOpenApi();
 
+app.MapPost("/api/drone/move/north", () =>
+{
+    drone.MoveNorth();
+
+    return Results.Ok(drone.GetTelemetry());
+})
+.WithName("MoveDroneNorth")
+.WithOpenApi();
+
 app.Run();
