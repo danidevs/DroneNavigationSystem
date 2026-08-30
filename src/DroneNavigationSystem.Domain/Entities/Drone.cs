@@ -1,10 +1,9 @@
+
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DroneNavigationSystem.Domain.Results;
 using DroneNavigationSystem.Domain.Services;
 using DroneNavigationSystem.Domain.Telemetry;
-using DroneNavigationSystem.Domain.Results;
 
 namespace DroneNavigationSystem.Domain.Entities
 {
@@ -23,7 +22,7 @@ namespace DroneNavigationSystem.Domain.Entities
         public double Longitude { get; private set; }
 
         public double Altitude { get; private set; }
-       
+
         public bool IsFlying { get; private set; }
 
         public Drone(string model, string manufacturer)
@@ -41,9 +40,10 @@ namespace DroneNavigationSystem.Domain.Entities
             Longitude = 0;
 
             Altitude = 0;
-            
+
             IsFlying = false;
-        } 
+        }
+
         public void TakeOff()
         {
             if (IsFlying)
@@ -63,80 +63,102 @@ namespace DroneNavigationSystem.Domain.Entities
             ConsumeBattery(2);
 
             Console.WriteLine("Drone taking off...");
-        } 
-       public DroneCommandResult MoveNorth()
-{
-    if (!IsFlying)
-    {
-        return new DroneCommandResult(
-            false,
-            "The drone must take off first.");
-    }
+        }
 
-    if (!HasEnoughBattery(1))
-    {
-        return new DroneCommandResult(
-            false,
-            "Battery too low.");
-    }
-
-    Latitude += 1;
-    ConsumeBattery(1);
-
-    return new DroneCommandResult(
-        true,
-        "Drone moved north.");
-}
-
-        public void MoveSouth()
+        public DroneCommandResult MoveNorth()
         {
             if (!IsFlying)
             {
-                Console.WriteLine("The drone must take off first.");
-                return;
+                return new DroneCommandResult(
+                    false,
+                    "The drone must take off first.");
             }
+
             if (!HasEnoughBattery(1))
             {
-                Console.WriteLine("Battery too low.");
-                return;
+                return new DroneCommandResult(
+                    false,
+                    "Battery too low.");
+            }
+
+            Latitude += 1;
+            ConsumeBattery(1);
+
+            return new DroneCommandResult(
+                true,
+                "Drone moved north.");
+        }
+
+        public DroneCommandResult MoveSouth()
+        {
+            if (!IsFlying)
+            {
+                return new DroneCommandResult(
+                    false,
+                    "The drone must take off first.");
+            }
+
+            if (!HasEnoughBattery(1))
+            {
+                return new DroneCommandResult(
+                    false,
+                    "Battery too low.");
             }
 
             Latitude -= 1;
             ConsumeBattery(1);
+
+            return new DroneCommandResult(
+                true,
+                "Drone moved south.");
         }
 
-        public void MoveEast()
+        public DroneCommandResult MoveEast()
         {
             if (!IsFlying)
             {
-                Console.WriteLine("The drone must take off first.");
-                return;
+                return new DroneCommandResult(
+                    false,
+                    "The drone must take off first.");
             }
+
             if (!HasEnoughBattery(1))
             {
-                Console.WriteLine("Battery too low.");
-                return;
+                return new DroneCommandResult(
+                    false,
+                    "Battery too low.");
             }
 
             Longitude += 1;
             ConsumeBattery(1);
+
+            return new DroneCommandResult(
+                true,
+                "Drone moved east.");
         }
-        
-        public void MoveWest()
+
+        public DroneCommandResult MoveWest()
         {
             if (!IsFlying)
             {
-                Console.WriteLine("The drone must take off first.");
-                return;
+                return new DroneCommandResult(
+                    false,
+                    "The drone must take off first.");
             }
+
             if (!HasEnoughBattery(1))
             {
-                Console.WriteLine("Battery too low.");
-                return;
+                return new DroneCommandResult(
+                    false,
+                    "Battery too low.");
             }
 
             Longitude -= 1;
             ConsumeBattery(1);
+
+            return new DroneCommandResult(
+                true,
+                "Drone moved west.");
         }
 
         public void Ascend()
@@ -146,11 +168,13 @@ namespace DroneNavigationSystem.Domain.Entities
                 Console.WriteLine("The drone must take off first.");
                 return;
             }
+
             if (!HasEnoughBattery(2))
             {
                 Console.WriteLine("Battery too low.");
                 return;
             }
+
             Altitude += 10;
             ConsumeBattery(2);
         }
@@ -162,18 +186,21 @@ namespace DroneNavigationSystem.Domain.Entities
                 Console.WriteLine("The drone must take off first.");
                 return;
             }
+
             if (!HasEnoughBattery(1))
             {
                 Console.WriteLine("Battery too low.");
                 return;
             }
+
             if (Altitude >= 10)
             {
                 Altitude -= 10;
                 ConsumeBattery(1);
             }
         }
-       public void Land()
+
+        public void Land()
         {
             if (!IsFlying)
             {
@@ -187,6 +214,7 @@ namespace DroneNavigationSystem.Domain.Entities
 
             Console.WriteLine("Drone landing...");
         }
+
         private void ConsumeBattery(double amount)
         {
             BatteryLevel -= amount;
@@ -196,86 +224,88 @@ namespace DroneNavigationSystem.Domain.Entities
                 BatteryLevel = 0;
             }
         }
+
         private bool HasEnoughBattery(double required)
         {
             return BatteryLevel >= required;
         }
-       public void ExecuteMission(Mission mission)
-{
-    Console.WriteLine();
-    Console.WriteLine($"Starting mission: {mission.Name}");
-    Console.WriteLine();
 
-    var calculator = new NavigationCalculator();
+        public void ExecuteMission(Mission mission)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"Starting mission: {mission.Name}");
+            Console.WriteLine();
 
-    double totalDistance = 0;
+            var calculator = new NavigationCalculator();
 
-    double currentLatitude = Latitude;
-    double currentLongitude = Longitude;
-    double currentAltitude = Altitude;
+            double totalDistance = 0;
 
-    foreach (var waypoint in mission.Waypoints)
-    {
-        double distance = calculator.CalculateDistance(
-            currentLatitude,
-            currentLongitude,
-            currentAltitude,
-            waypoint.Latitude,
-            waypoint.Longitude,
-            waypoint.Altitude);
+            double currentLatitude = Latitude;
+            double currentLongitude = Longitude;
+            double currentAltitude = Altitude;
 
-        totalDistance += distance;
+            foreach (var waypoint in mission.Waypoints)
+            {
+                double distance = calculator.CalculateDistance(
+                    currentLatitude,
+                    currentLongitude,
+                    currentAltitude,
+                    waypoint.Latitude,
+                    waypoint.Longitude,
+                    waypoint.Altitude);
 
-        currentLatitude = waypoint.Latitude;
-        currentLongitude = waypoint.Longitude;
-        currentAltitude = waypoint.Altitude;
-    }
+                totalDistance += distance;
 
-    Console.WriteLine(
-        $"Total mission distance: {totalDistance:F2}");
+                currentLatitude = waypoint.Latitude;
+                currentLongitude = waypoint.Longitude;
+                currentAltitude = waypoint.Altitude;
+            }
 
-    var energyCalculator = new EnergyCalculator();
+            Console.WriteLine(
+                $"Total mission distance: {totalDistance:F2}");
 
-    double estimatedMissionConsumption =
-        energyCalculator.CalculateMissionConsumption(totalDistance);
+            var energyCalculator = new EnergyCalculator();
 
-    Console.WriteLine(
-        $"Estimated mission energy consumption: {estimatedMissionConsumption:F2}%");
+            double estimatedMissionConsumption =
+                energyCalculator.CalculateMissionConsumption(totalDistance);
 
-    const double minimumSafetyBattery = 20;
+            Console.WriteLine(
+                $"Estimated mission energy consumption: {estimatedMissionConsumption:F2}%");
 
-    double estimatedBatteryAfterMission =
-        BatteryLevel - estimatedMissionConsumption;
+            const double minimumSafetyBattery = 20;
 
-    Console.WriteLine(
-        $"Estimated battery after mission: {estimatedBatteryAfterMission:F2}%");
+            double estimatedBatteryAfterMission =
+                BatteryLevel - estimatedMissionConsumption;
 
-    if (estimatedBatteryAfterMission < minimumSafetyBattery)
-    {
-        Console.WriteLine(
-            "Mission aborted: insufficient battery reserve.");
+            Console.WriteLine(
+                $"Estimated battery after mission: {estimatedBatteryAfterMission:F2}%");
 
-        return;
-    }
+            if (estimatedBatteryAfterMission < minimumSafetyBattery)
+            {
+                Console.WriteLine(
+                    "Mission aborted: insufficient battery reserve.");
 
-    if (!IsFlying)
-    {
-        TakeOff();
-    }
+                return;
+            }
 
-    foreach (var waypoint in mission.Waypoints)
-    {
-        MoveToWaypoint(waypoint);
-    }
+            if (!IsFlying)
+            {
+                TakeOff();
+            }
 
-    Land();
+            foreach (var waypoint in mission.Waypoints)
+            {
+                MoveToWaypoint(waypoint);
+            }
 
-    Console.WriteLine();
-    Console.WriteLine("Mission completed successfully.");
-}
+            Land();
+
+            Console.WriteLine();
+            Console.WriteLine("Mission completed successfully.");
+        }
+
         private void MoveToWaypoint(Waypoint waypoint)
         {
-
             var calculator = new NavigationCalculator();
 
             double distance = calculator.CalculateDistance(
@@ -286,69 +316,73 @@ namespace DroneNavigationSystem.Domain.Entities
                 waypoint.Longitude,
                 waypoint.Altitude);
 
-                Console.WriteLine();
-                Console.WriteLine($"Distance to waypoint: {distance:F2}");
-                Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"Distance to waypoint: {distance:F2}");
+            Console.WriteLine();
+
             var energyCalculator = new EnergyCalculator();
 
             double estimatedConsumption =
-            energyCalculator.CalculateConsumption(distance);
+                energyCalculator.CalculateConsumption(distance);
 
-            Console.WriteLine($"Estimated energy consumption: {estimatedConsumption:F2}%");
+            Console.WriteLine(
+                $"Estimated energy consumption: {estimatedConsumption:F2}%");
+
             while (Latitude != waypoint.Latitude)
             {
                 if (Latitude < waypoint.Latitude)
-        {
-            Latitude += 1;
-        }
-        else
-        {
-            Latitude -= 1;
-        }
+                {
+                    Latitude += 1;
+                }
+                else
+                {
+                    Latitude -= 1;
+                }
 
-        ConsumeBattery(1);
+                ConsumeBattery(1);
 
-        Console.WriteLine(
-            $"Moving -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude} Battery:{BatteryLevel}%");
-        }
-
-        while (Longitude != waypoint.Longitude)
-        {
-            if (Longitude < waypoint.Longitude)
-            {
-                Longitude += 1;
+                Console.WriteLine(
+                    $"Moving -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude} Battery:{BatteryLevel}%");
             }
-            else
-            {
-                Longitude -= 1;
-        }
 
-        ConsumeBattery(1);
+            while (Longitude != waypoint.Longitude)
+            {
+                if (Longitude < waypoint.Longitude)
+                {
+                    Longitude += 1;
+                }
+                else
+                {
+                    Longitude -= 1;
+                }
+
+                ConsumeBattery(1);
+
+                Console.WriteLine(
+                    $"Moving -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude} Battery:{BatteryLevel}%");
+            }
+
+            while (Altitude != waypoint.Altitude)
+            {
+                if (Altitude < waypoint.Altitude)
+                {
+                    Altitude += 10;
+                }
+                else
+                {
+                    Altitude -= 10;
+                }
+
+                ConsumeBattery(1);
+
+                Console.WriteLine(
+                    $"Moving -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude} Battery:{BatteryLevel}%");
+            }
 
             Console.WriteLine(
-            $"Moving -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude} Battery:{BatteryLevel}%");
+                $"Waypoint reached -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude}");
         }
 
-        while (Altitude != waypoint.Altitude)
-        {
-            if (Altitude < waypoint.Altitude)
-            {
-                Altitude += 10;
-            }
-            else
-            {
-            Altitude -= 10;
-        }
-
-        ConsumeBattery(1);
-
-        Console.WriteLine(
-            $"Moving -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude} Battery:{BatteryLevel}%");
-    }
-
-    Console.WriteLine(
-        $"Waypoint reached -> Lat:{Latitude} Lon:{Longitude} Alt:{Altitude}");
-}
         public DroneTelemetry GetTelemetry()
         {
             return new DroneTelemetry(
@@ -360,6 +394,5 @@ namespace DroneNavigationSystem.Domain.Entities
                 BatteryLevel,
                 IsFlying);
         }
-       
     }
 }
