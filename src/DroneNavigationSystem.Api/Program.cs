@@ -19,14 +19,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/api/drone/telemetry", () =>
+var droneApi = app.MapGroup("/api/drone");
+
+droneApi.MapGet("/telemetry", () =>
 {
     return drone.GetTelemetry();
 })
 .WithName("GetDroneTelemetry")
 
 .WithOpenApi();
-app.MapPost("/api/drone/takeoff", () =>
+droneApi.MapPost("/takeoff", () =>
 {
     drone.TakeOff();
 
@@ -35,7 +37,7 @@ app.MapPost("/api/drone/takeoff", () =>
 .WithName("TakeOffDrone")
 .WithOpenApi();
 
-app.MapPost("/api/drone/land", () =>
+droneApi.MapPost("/land", () =>
 {
     drone.Land();
 
@@ -44,7 +46,7 @@ app.MapPost("/api/drone/land", () =>
 .WithName("LandDrone")
 .WithOpenApi();
 
-app.MapPost("/api/drone/move/north", () =>
+droneApi.MapPost("/move/north", () =>
 {
     drone.MoveNorth();
 
@@ -52,7 +54,7 @@ app.MapPost("/api/drone/move/north", () =>
 })
 .WithName("MoveDroneNorth")
 .WithOpenApi();
-app.MapPost("/api/drone/move/south", () =>
+droneApi.MapPost("/move/south", () =>
 {
     drone.MoveSouth();
 
@@ -60,7 +62,7 @@ app.MapPost("/api/drone/move/south", () =>
 })
 .WithName("MoveDroneSouth")
 .WithOpenApi();
-app.MapPost("/api/drone/move/east", () =>
+droneApi.MapPost("/move/east", () =>
 {
     drone.MoveEast();
 
@@ -68,7 +70,7 @@ app.MapPost("/api/drone/move/east", () =>
 })
 .WithName("MoveDroneEast")
 .WithOpenApi();
-app.MapPost("/api/drone/move/west", () =>
+droneApi.MapPost("/move/west", () =>
 {
     drone.MoveWest();
 
@@ -76,7 +78,7 @@ app.MapPost("/api/drone/move/west", () =>
 })
 .WithName("MoveDroneWest")
 .WithOpenApi();
-app.MapPost("/api/drone/ascend", () =>
+droneApi.MapPost("/ascend", () =>
 {
     drone.Ascend();
 
@@ -85,7 +87,7 @@ app.MapPost("/api/drone/ascend", () =>
 .WithName("AscendDrone")
 .WithOpenApi();
 
-app.MapPost("/api/drone/descend", () =>
+droneApi.MapPost("/descend", () =>
 {
     drone.Descend();
 
