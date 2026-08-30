@@ -32,14 +32,27 @@ public static class DroneEndpoints
         })
         .WithName("LandDrone")
         .WithOpenApi();
+droneApi.MapPost("/move/north", () =>
+{
+    var result = drone.MoveNorth();
 
-        droneApi.MapPost("/move/north", () =>
+    if (!result.Success)
+    {
+        return Results.BadRequest(new
         {
-            drone.MoveNorth();
-            return Results.Ok(drone.GetTelemetry());
-        })
-        .WithName("MoveDroneNorth")
-        .WithOpenApi();
+            message = result.Message,
+            telemetry = drone.GetTelemetry()
+        });
+    }
+
+    return Results.Ok(new
+    {
+        message = result.Message,
+        telemetry = drone.GetTelemetry()
+    });
+})
+.WithName("MoveDroneNorth")
+.WithOpenApi();
 
         droneApi.MapPost("/move/south", () =>
         {

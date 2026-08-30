@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DroneNavigationSystem.Domain.Services;
 using DroneNavigationSystem.Domain.Telemetry;
+using DroneNavigationSystem.Domain.Results;
 
 namespace DroneNavigationSystem.Domain.Entities
 {
@@ -63,22 +64,29 @@ namespace DroneNavigationSystem.Domain.Entities
 
             Console.WriteLine("Drone taking off...");
         } 
-       public void MoveNorth()
-        {
-            if (!IsFlying)
-            {
-                Console.WriteLine("The drone must take off first.");
-                return;
-            }
-            if (!HasEnoughBattery(1))
-            {
-                Console.WriteLine("Battery too low.");
-                return;
-            }
+       public DroneCommandResult MoveNorth()
+{
+    if (!IsFlying)
+    {
+        return new DroneCommandResult(
+            false,
+            "The drone must take off first.");
+    }
 
-                Latitude += 1;
-                ConsumeBattery(1);
-        }
+    if (!HasEnoughBattery(1))
+    {
+        return new DroneCommandResult(
+            false,
+            "Battery too low.");
+    }
+
+    Latitude += 1;
+    ConsumeBattery(1);
+
+    return new DroneCommandResult(
+        true,
+        "Drone moved north.");
+}
 
         public void MoveSouth()
         {
