@@ -52,5 +52,47 @@ app.MapPost("/api/drone/move/north", () =>
 })
 .WithName("MoveDroneNorth")
 .WithOpenApi();
+app.MapPost("/api/drone/move/south", () =>
+{
+    drone.MoveSouth();
+
+    return Results.Ok(drone.GetTelemetry());
+})
+.WithName("MoveDroneSouth")
+.WithOpenApi();
+app.MapPost("/api/drone/move/east", () =>
+{
+    drone.MoveEast();
+
+    return Results.Ok(drone.GetTelemetry());
+})
+.WithName("MoveDroneEast")
+.WithOpenApi();
+app.MapPost("/api/drone/move/west", () =>
+{
+    drone.MoveWest();
+
+    return Results.Ok(drone.GetTelemetry());
+})
+.WithName("MoveDroneWest")
+.WithOpenApi();
+app.MapPost("/api/drone/ascend", () =>
+{
+    drone.Ascend();
+
+    return Results.Ok(drone.GetTelemetry());
+})
+.WithName("AscendDrone")
+.WithOpenApi();
+
+app.MapPost("/api/drone/descend", () =>
+{
+    drone.Descend();
+
+    return Results.Ok(drone.GetTelemetry());
+})
+.WithName("DescendDrone")
+.WithOpenApi();
+
 
 app.Run();
