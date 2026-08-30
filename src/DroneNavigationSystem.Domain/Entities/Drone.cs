@@ -161,44 +161,60 @@ namespace DroneNavigationSystem.Domain.Entities
                 "Drone moved west.");
         }
 
-        public void Ascend()
-        {
-            if (!IsFlying)
-            {
-                Console.WriteLine("The drone must take off first.");
-                return;
-            }
+       public DroneCommandResult Ascend()
+{
+    if (!IsFlying)
+    {
+        return new DroneCommandResult(
+            false,
+            "The drone must take off first.");
+    }
 
-            if (!HasEnoughBattery(2))
-            {
-                Console.WriteLine("Battery too low.");
-                return;
-            }
+    if (!HasEnoughBattery(2))
+    {
+        return new DroneCommandResult(
+            false,
+            "Battery too low.");
+    }
 
-            Altitude += 10;
-            ConsumeBattery(2);
-        }
+    Altitude += 10;
+    ConsumeBattery(2);
 
-        public void Descend()
-        {
-            if (!IsFlying)
-            {
-                Console.WriteLine("The drone must take off first.");
-                return;
-            }
+    return new DroneCommandResult(
+        true,
+        "Drone ascended.");
+}
 
-            if (!HasEnoughBattery(1))
-            {
-                Console.WriteLine("Battery too low.");
-                return;
-            }
+       public DroneCommandResult Descend()
+{
+    if (!IsFlying)
+    {
+        return new DroneCommandResult(
+            false,
+            "The drone must take off first.");
+    }
 
-            if (Altitude >= 10)
-            {
-                Altitude -= 10;
-                ConsumeBattery(1);
-            }
-        }
+    if (!HasEnoughBattery(1))
+    {
+        return new DroneCommandResult(
+            false,
+            "Battery too low.");
+    }
+
+    if (Altitude <= 10)
+    {
+        return new DroneCommandResult(
+            false,
+            "Minimum flight altitude reached. Use Land to land the drone.");
+    }
+
+    Altitude -= 10;
+    ConsumeBattery(1);
+
+    return new DroneCommandResult(
+        true,
+        "Drone descended.");
+}
 
         public void Land()
         {

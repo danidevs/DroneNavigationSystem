@@ -126,21 +126,46 @@ public static class DroneEndpoints
         .WithOpenApi();
 
         droneApi.MapPost("/ascend", () =>
+{
+    var result = drone.Ascend();
+
+    if (!result.Success)
+    {
+        return Results.BadRequest(new
         {
-            drone.Ascend();
+            message = result.Message,
+            telemetry = drone.GetTelemetry()
+        });
+    }
 
-            return Results.Ok(drone.GetTelemetry());
-        })
-        .WithName("AscendDrone")
-        .WithOpenApi();
+    return Results.Ok(new
+    {
+        message = result.Message,
+        telemetry = drone.GetTelemetry()
+    });
+})
+.WithName("AscendDrone")
+.WithOpenApi();
+droneApi.MapPost("/descend", () =>
+{
+    var result = drone.Descend();
 
-        droneApi.MapPost("/descend", () =>
+    if (!result.Success)
+    {
+        return Results.BadRequest(new
         {
-            drone.Descend();
+            message = result.Message,
+            telemetry = drone.GetTelemetry()
+        });
+    }
 
-            return Results.Ok(drone.GetTelemetry());
-        })
-        .WithName("DescendDrone")
-        .WithOpenApi();
+    return Results.Ok(new
+    {
+        message = result.Message,
+        telemetry = drone.GetTelemetry()
+    });
+})
+.WithName("DescendDrone")
+.WithOpenApi();
     }
 }
